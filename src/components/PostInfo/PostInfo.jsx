@@ -4,8 +4,8 @@ import { UserInfo } from '../UserInfo/UserInfo';
 import { CommentList } from '../CommentList/CommentList';
 
 export const PostInfo = ({ post, comments }) => {
-  const postComments = comments.filter(
-    comment => Number(comment.postId) === Number(post.id),
+  const postComments = (comments || []).filter(
+    comment => Number(comment.postId) === Number(post?.id),
   );
 
   return (
