@@ -3,17 +3,14 @@ import './App.scss';
 import postsFromServer from './api/posts.json';
 import commentsFromServer from './api/comments.json';
 import usersFromServer from './api/users.json';
+
 import { PostList } from './components/PostList/PostList';
 
-function getUserById(userId) {
+ function getUserById(userId) {
   return usersFromServer.find(user => user.id === userId) || null;
 }
 
-/* export const processedComments = commentsFromServer.map(comment => ({
-  ...comment,
-  user: getUserById(comment.userId),
-}));
-*/
+
 export const processedPosts = postsFromServer.map(post => ({
   ...post,
   user: getUserById(post.userId),
@@ -21,6 +18,14 @@ export const processedPosts = postsFromServer.map(post => ({
     comment => Number(comment.postId) === Number(post.id),
   ),
 }));
+
+/*
+
+ export const processedComments = commentsFromServer.map(comment => ({
+  ...comment,
+  user: getUserById(comment.userId),
+}));
+*/
 
 export const App = () => (
   <section className="App">
