@@ -6,10 +6,9 @@ import usersFromServer from './api/users.json';
 
 import { PostList } from './components/PostList/PostList';
 
- function getUserById(userId) {
+function getUserById(userId) {
   return usersFromServer.find(user => user.id === userId) || null;
 }
-
 
 export const processedPosts = postsFromServer.map(post => ({
   ...post,
@@ -30,6 +29,6 @@ export const processedPosts = postsFromServer.map(post => ({
 export const App = () => (
   <section className="App">
     <h1 className="App__title">Static list of posts</h1>
-    <PostList postsComments={processedPosts} />
+    <PostList posts={processedPosts} />
   </section>
 );
